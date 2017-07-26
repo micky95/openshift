@@ -27,9 +27,8 @@ public class InsultGenerator {
         }
 	public String testConnection() {
 	
-               
                 Connection connection=null;
-                //try{
+                try{
                     connection = getConnection();
                     if (connection != null) {
 			//return "tlukt!!!";
@@ -50,14 +49,11 @@ public class InsultGenerator {
                         //theInsult = String.format("Thou art %s %s %s %s!", article,
                         //rs.getString("first"), rs.getString("second"), rs.getString("noun"));
                     }
-                    else{
-                    return "database connection error!";
-                    }
                     connection.close();
-                //}
-                //catch(Exception e){
-                  //  return "Database connection error!!";
-                //}
+                }
+                catch(Exception e){
+                    return "Database connection error!!";
+                }
                     //rs.close();
                 return null;
                 
