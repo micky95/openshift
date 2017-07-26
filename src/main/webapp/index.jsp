@@ -8,19 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insult Generator</title>
+<title>Database Get</title>
 </head>
 <body>
-<h1>TEST</h1>
+<h1>TEST DOWNLOAD DB ROWS</h1>
 <p>
 <%
 out.println(new InsultGenerator().testConnection());
 %>
-</p>
-<form method="post" action="fileupload.jsp" enctype="multipart/form-data">
-Select file to upload:
-<input type="file" name="dataFile" id="fileChooser"/><br/><br/>
-<input type="submit" value="Upload" />
 </form>
 </body>
 </html>
