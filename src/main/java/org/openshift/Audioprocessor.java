@@ -1,10 +1,14 @@
 package org.openshift;
 
+import java.beans.PropertyVetoException;
+import java.io.IOException;
 import java.util.Random;
 
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 
@@ -25,6 +29,7 @@ public class Audioprocessor {
             return null;
             }
         }
+        
 	public String getData() {
 	
                 Connection connection=null;
@@ -58,6 +63,36 @@ public class Audioprocessor {
                     //rs.close();
                 return null;
                 
+        }
+        public String getDPData() throws IOException, PropertyVetoException{
+            String res="";
+            DataSource ds=null;
+            Connection connection = null;
+            Statement statement = null;
+            ResultSet rs = null;
+            try {
+                res = "tmacheert";
+                ds = DataSource.getInstance();
+                connection= ds.getConnection();
+                res += "<br>"+ connection.toString();
+                String SQL ="select sample from audiosamples";
+                PreparedStatement st= connection.prepareStatement(SQL);
+                st.setMaxRows(100);
+                rs=st.executeQuery();
+                res= rs.toString();
+                while (rs.next()) {
+                    res += "<br>"+rs.getString("sample");
+                }
+                return res;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                res = "db connection error";
+            } finally {
+                if (rs != null) try { rs.close(); } catch (SQLException e) {e.printStackTrace();}
+                if (statement != null) try { statement.close(); } catch (SQLException e) {e.printStackTrace();}
+                if (connection != null) try { connection.close(); } catch (SQLException e) {e.printStackTrace();}
+            }
+            return res;
         }
 
 }
