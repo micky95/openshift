@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 
-public class InsultGenerator {
+public class Audioprocessor {
     
         public Connection getConnection(){
             try{
@@ -25,7 +25,7 @@ public class InsultGenerator {
             return null;
             }
         }
-	public String testConnection() {
+	public String getData() {
 	
                 Connection connection=null;
                 try{
@@ -38,6 +38,7 @@ public class InsultGenerator {
                         
                         String SQL = "select sample from audiosamples";
                         Statement stmt = connection.createStatement();
+                        stmt.setMaxRows(100);
     
                         ResultSet rs = stmt.executeQuery(SQL);
                         res= rs.toString();

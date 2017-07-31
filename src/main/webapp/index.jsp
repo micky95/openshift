@@ -1,4 +1,4 @@
-<%@page import="org.openshift.InsultGenerator"%>
+<%@page import="org.openshift.Audioprocessor"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -14,7 +14,7 @@
 <h1>TEST DOWNLOAD DB ROWS</h1>
 <p>
 <%
-out.println(new InsultGenerator().testConnection());
+out.println(new Audioprocessor().getData());
 %>
 </form>
 </body>
