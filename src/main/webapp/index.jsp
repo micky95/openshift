@@ -15,9 +15,12 @@
 <h1>TEST DOWNLOAD DB ROWS</h1>
 <p>
 <%
-out.println(new Audioprocessor().getDPData());
+//out.println(new Audioprocessor().getDPData());
 //new Load().Test();
 %>
+<form method="post" action="FileUpload">
+Test CPU load burner: 
+<input type="submit" value="Upload" />
 </form>
 </body>
 </html>

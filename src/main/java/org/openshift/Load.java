@@ -5,11 +5,22 @@
  */
 package org.openshift;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author nagelsm
  */
-public class Load {
+@WebServlet(name = "load", urlPatterns = {"/load"})
+public class Load extends HttpServlet{
     public void Test(){
     
         int numCore = 2;
@@ -21,6 +32,11 @@ public class Load {
         }
     }
     
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            request.getRequestDispatcher("/result.jsp").forward(request, response);
+    }
     private static class BusyThread extends Thread {
         private double load;
         private long duration;
@@ -56,4 +72,5 @@ public class Load {
             }
         }
     }
+    
 }
