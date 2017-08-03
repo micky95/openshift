@@ -18,9 +18,9 @@
 //out.println(new Audioprocessor().getDPData());
 //new Load().Test();
 %>
-<form method="post" action="FileUpload">
+<form method="post" action="Load">
 Test CPU load burner: 
-<input type="submit" value="Upload" />
+<input type="submit" value="burner" />
 </form>
 </body>
 </html>
