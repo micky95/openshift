@@ -11,6 +11,7 @@
     <body>
         <div id="result">
             <h3> Burner Test
+                <%new Load().Test(); %>
             </h3>
         </div>
     </body>
