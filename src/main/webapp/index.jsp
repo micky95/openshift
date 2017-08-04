@@ -15,7 +15,7 @@
 <h1>TEST DOWNLOAD DB ROWS</h1>
 <p>
 <%
-//out.println(new Audioprocessor().getDPData());
+out.println(new Audioprocessor().getDPData());
 //new Load().Test();
 %>
 <form method="post" action="Load">
