@@ -81,7 +81,8 @@ public class Audioprocessor {
                 rs=st.executeQuery();
                 res= rs.toString();
                 while (rs.next()) {
-                    res += "<br>"+rs.getString("name") + ": " + rs.getString("sample") ;
+                    res += "<br>"+rs.getString("name") ;
+                            //+ ": " + rs.getString("sample") ;
                 }
                 return res;
             } catch (SQLException e) {
