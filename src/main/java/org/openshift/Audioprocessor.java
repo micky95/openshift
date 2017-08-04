@@ -75,13 +75,13 @@ public class Audioprocessor {
                 ds = DataSource.getInstance();
                 connection= ds.getConnection();
                 res += "<br>"+ connection.toString();
-                String SQL ="select sample from audiosamples";
+                String SQL ="select name,sample from audiosamples";
                 PreparedStatement st= connection.prepareStatement(SQL);
                 st.setMaxRows(100);
                 rs=st.executeQuery();
                 res= rs.toString();
                 while (rs.next()) {
-                    res += "<br>"+rs.getString("sample");
+                    res += "<br>"+rs.getString("name") + ": " + rs.getString("sample") ;
                 }
                 return res;
             } catch (SQLException e) {
